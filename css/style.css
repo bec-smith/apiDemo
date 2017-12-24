@@ -1,0 +1,23 @@
+body {
+  align-items: center;
+  justify-content: center;
+  background-color: LAVENDER;
+}
+
+#flex-container {
+  display: flex;
+  flex-direction: row;
+
+}
+
+input{
+  background-color: lightgreen;
+  text-decoration: none;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+#picture{
+    width: 400px;
+    height: 400px;
+}
