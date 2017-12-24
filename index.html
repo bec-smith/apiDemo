@@ -2,6 +2,7 @@
 
 <head>
 <title>trying apis</title>
+<link rel="stylesheet" href="css/style.css"/>
 </head>
 
 <body>
@@ -9,7 +10,13 @@
 <h2> The Numbers API returns random fact about a random number and the Dogs API returns a random image from a random dog breed </h2>
 <input id="clickMe" type="button" value="Numbers API" onclick="getRandomNumber();" />
 <input id="clickMe" type="button" value="Dogs API" onclick="getRandomDog();" />
+<div id="flex-container">
 
+    <div id = "text" > </div>
+
+
+    <div id = "pics"> <img id = "img"> </img> </div>
+</div>
 
 <script>
 function getRandomNumber(){
@@ -19,11 +26,8 @@ fetch('http://numbersapi.com/random/trivia?json')
   })
   .then(function(json) {
   //  console.log(json);
-    var newDiv = document.createElement("div");
-    var text = document.createTextNode(json.text);
-    newDiv.appendChild(text);
-    document.body.appendChild(newDiv);
-
+    var text = document.getElementById('text');
+    text.innerHTML = json.text;
   })
   .catch(function(error) {
     log('Request failed', error)
@@ -36,15 +40,11 @@ function getRandomDog(){
    })
    .then(function(json) {
      //console.log(json);
-     var newDiv = document.createElement("div");
-     var image = document.createElement("IMG");
+     var image = document.getElementById('img');
      image.src = json.message
-     newDiv.appendChild(image);
-     document.body.appendChild(newDiv);
-
    })
    .catch(function(error) {
-     log('Request failed', error)
+     console.log('Request failed', error)
    });
  }
  </script>
